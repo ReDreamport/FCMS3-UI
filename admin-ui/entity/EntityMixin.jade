@@ -17,7 +17,8 @@ mixin viewEntityTable(fields, entityValue, systemFields)
 mixin renderFieldValue(fieldMeta, entityValue, renderComponentCompletely)
     -var fn = fieldMeta.name
     -var entityValue = entityValue || {}
-    if fieldMeta.options && fieldMeta.options.length
+
+    if fieldMeta.inputType in ["Select", "CheckList"] && fieldMeta.options && fieldMeta.options.length
         -var options = F.optionsArrayToMap(fieldMeta.options)
         if entityValue[fn]
             -var fv = F.ensureValueIsArray(entityValue[fn])

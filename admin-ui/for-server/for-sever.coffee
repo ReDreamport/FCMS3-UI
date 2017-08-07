@@ -17,6 +17,7 @@ F.optionsOfInputType = (fieldName, form, dependentValue)->
         when "File" then ["File"]
         when "Component" then ["InlineComponent", "PopupComponent", "TabledComponent"]
         when "Reference" then ["Reference"]
+        when "Object" then ["JSON"]
     stringArrayToOptionArray options
 
 F.optionsOfPersistType = (fieldName, form, dependentValue)->
