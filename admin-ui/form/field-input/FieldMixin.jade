@@ -3,9 +3,9 @@ include ../../entity/EntityMixin
 mixin popupComponentItem(itemValue, field, fClass, listFieldNames)
     tr.fw-field-item(class=fClass, itemValue=itemValue && JSON.stringify(itemValue))
         td
-            a.fw-remove-item-component.iconfont.icon-delete.fw-icon-button(href="javascript:")
+            a.fw-remove-item-component.field-action-btn(href="javascript:") 删除
         td
-            a.fw-edit-item-component.iconfont.icon-edit.fw-icon-button(href="javascript:")
+            a.fw-edit-item-component.field-action-btn(href="javascript:") 编辑
         -var refEntityFields = F.meta.entities[field.refEntity].fields
         each name in listFieldNames
             td

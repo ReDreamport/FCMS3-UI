@@ -66,4 +66,7 @@ mixin renderFieldValue(fieldMeta, entityValue, renderComponentCompletely)
                     each id in fv
                         a.to-view-entity.loading-ref(href="javascript:", _id=id, entityName=fieldMeta.refEntity)=F.digestId(id)
             default
-                div!=entityValue[fn]
+                span!=entityValue[fn]
+
+mixin fieldActionBtn(text, classes)
+    a.field-action-btn(href="javascript:", class=classes)=text

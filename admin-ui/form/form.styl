@@ -3,7 +3,6 @@
 .fw-field
     margin 0
     box-sizing border-box
-    border-top 1px solid #e0eafa
     padding 8px
     font-size 14px
     width (inputTextWidth + 50px)
@@ -129,22 +128,17 @@
             width 50px
 
 .form
-    border-bottom 1px solid #e0eafa
+    // border-bottom 1px solid #e0eafa
     min-width 320px
 
     .form-actions
         position relative
-        background #e0eafa
+        background cBodyBg
         padding 0 8px
         margin-bottom 4px
+        text-align right
 
-    .toggle-form-visible
-        display inline-block
-
-    .actions-right
-        float right
-
-    .show-editor-input, .show-editor-json
+    .toggle-form-visible, .show-editor-input, .show-editor-json
         margin 0 4px
 
     .form-json textarea
@@ -181,3 +175,18 @@
         display inline-block
         color cBtnBg
         line-height 2em
+
+.field-actions-bar
+    display inline-block
+    margin 0 8px
+
+.field-action-btn
+    display inline-block
+    vertical-align middle
+    font-size 10px
+    height 24px
+    line-height 24px
+    padding 0 6px
+    color #888
+    background cBodyBg
+    text-decoration none

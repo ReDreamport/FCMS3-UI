@@ -38,14 +38,6 @@ FF.normalizeSingleOrArray = (values, multiple)->
     else
         if values.length then values[0] else null
 
-FF.toggleVisible = ($this, $target)->
-    if $this.hasClass('fa-eye')
-        $this.removeClass('fa-eye').addClass('fa-eye-slash')
-        $target.hide()
-    else
-        $this.removeClass('fa-eye-slash').addClass('fa-eye')
-        $target.show()
-
 FF.buildNormalField = (form, fieldName, $fieldInputSlot, entityInitValue, buildFieldItem) ->
     fieldMeta = form.entityMeta.fields[fieldName]
 

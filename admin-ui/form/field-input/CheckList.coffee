@@ -14,12 +14,12 @@ FF.CheckList = {
 
         $fi.find('.fw-field-hide-options').click (e)->
             $this = $(this)
-            if $this.hasClass('fa-eye')
-                $this.removeClass('fa-eye').addClass('fa-eye-slash')
-                $list.hide()
-            else
-                $this.removeClass('fa-eye-slash').addClass('fa-eye')
+            if $this.hasClass('field-hidden')
+                $this.removeClass('field-hidden').html("隐藏")
                 $list.show()
+            else
+                $this.addClass('field-hidden').html("取消隐藏")
+                $list.hide()
 
             e.stopPropagation()
             e.preventDefault()

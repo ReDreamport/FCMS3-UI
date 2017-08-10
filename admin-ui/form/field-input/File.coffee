@@ -43,7 +43,13 @@ FF.buildFileOrImageField = (inputTemplate, itemTemplate)->
             false
 
         $field.on 'click', '.fw-hide-all-file', (e)->
-            FF.toggleVisible($(this), $upload.find('.fw-field-item'))
+            $this = $ this
+            if $this.hasClass('file-hidden')
+                $this.removeClass('file-hidden').html('收起')
+                $upload.find('.fw-field-item').show()
+            else
+                $this.addClass('file-hidden').html('展开')
+                $upload.find('.fw-field-item').hide()
 
             e.stopPropagation()
             e.preventDefault()

@@ -30,6 +30,7 @@ FF.PopupComponent = {
             false
 
         $field.on 'click', '.fw-remove-all-item-component', (e)-> # 多值，删除所有项
+            return unless confirm("确定要全部删除吗？")
             $tbody.find('.form').each -> FF.disposeForm(FF.$formToForm($(this)))
             $tbody.empty()
 
@@ -38,7 +39,13 @@ FF.PopupComponent = {
             false
 
         $field.on 'click', '.fw-hide-all-item-component', (e)->
-            FF.toggleVisible($(this), $tbody)
+            $this = $ this
+            if $this.hasClass('component-hidden')
+                $this.removeClass('component-hidden').html('收起')
+                $tbody.show()
+            else
+                $this.addClass('component-hidden').html('展开')
+                $tbody.hide()
 
             e.stopPropagation()
             e.preventDefault()

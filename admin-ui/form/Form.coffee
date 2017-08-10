@@ -11,13 +11,13 @@ FF.buildRootForm = (entityName, entityInitValue)->
 
     # 隐藏字段的所有项
     $form.on 'click', '.fw-field-hide-items', (e)->
-        $this = $(this)
-        if $this.hasClass('fa-eye')
-            $this.removeClass('fa-eye').addClass('fa-eye-slash')
-            $this.closest('.fw-field').find(".fw-field-input:first>.fw-field-item").hide()
-        else
-            $this.removeClass('fa-eye-slash').addClass('fa-eye')
+        $this = $ this
+        if $this.hasClass('items-hidden')
+            $this.removeClass('items-hidden').html('收起')
             $this.closest('.fw-field').find(".fw-field-input:first>.fw-field-item").show()
+        else
+            $this.addClass('items-hidden').html('展开')
+            $this.closest('.fw-field').find(".fw-field-input:first>.fw-field-item").hide()
 
         e.stopPropagation()
         e.preventDefault()
@@ -54,6 +54,8 @@ FF.buildRootForm = (entityName, entityInitValue)->
 
     # 移除字段的所有项
     $form.on 'click', '.fw-field-remove-all-items', (e)->
+        return unless confirm("确定要全部删除吗？")
+
         $items = $(this).closest('.fw-field').find(">.fw-field-item")
         $items.each ->
             $(this).find('.form').each -> FF.disposeForm(FF.$formToForm($(this)))

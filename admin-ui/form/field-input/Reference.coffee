@@ -64,6 +64,8 @@ FF.Reference = {
             false
 
         $field.on 'click', '.fw-remove-all-ref', (e)-> # 多值，删除所有项
+            return unless confirm("确定要全部删除吗？")
+
             $refs.empty()
             $refs.attr('value', "")
 
@@ -72,7 +74,13 @@ FF.Reference = {
             false
 
         $field.on 'click', '.fw-hide-all-ref', (e)->
-            FF.toggleVisible($(this), $refs)
+            $this = $ this
+            if $this.hasClass('ref-hidden')
+                $this.removeClass('ref-hidden').html('收起')
+                $refs.show()
+            else
+                $this.addClass('ref-hidden').html('展开')
+                $refs.hide()
 
             e.stopPropagation()
             e.preventDefault()
