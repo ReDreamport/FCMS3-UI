@@ -37,7 +37,8 @@ fail = (jqxhr)->
         # F.toSignIn()
         r = jqxhr.responseText && JSON.parse(jqxhr.responseText)
         href = encodeURIComponent(location.href)
-        location.href = r.signInUrl + "?callback=#{href}"
+        F.toastNormal "准备验证用户身份..."
+        F.setTimeout 1500, -> location.href = r.signInUrl + "?callback=#{href}"
     else if jqxhr.status == 403
         F.toastError '需要权限！'
 
