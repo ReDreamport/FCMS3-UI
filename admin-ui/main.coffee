@@ -76,7 +76,7 @@ F.openOrAddPage = (pageId, title, func, args, creator)->
         F.$mainPages.find('.page').hide()
         $page = $(FT.Page({pageId, title})).appendTo(F.$mainPages)
         $openItem = $ FT.OpenedItem({name: title, pageId})
-        F.$mainOpened.prepend $openItem
+        F.$mainOpened.append $openItem
         F.$mainOpened.show()
 
         page = {$page, $openItem, func, args}

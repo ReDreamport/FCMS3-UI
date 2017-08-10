@@ -1,6 +1,7 @@
 each mg in menuGroups
     .menu-group
-        .menu-group-title=mg.label
+        if mg.label
+            .menu-group-title=mg.label
         each mi in mg.menuItems
             if mi.toEntity
                 -var em = F.meta.entities[mi.toEntity]

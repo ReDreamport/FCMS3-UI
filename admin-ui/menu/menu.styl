@@ -13,31 +13,29 @@
     &.collapsed
         display none
 
-    .open
-        border-bottom 4px solid cSeparator
-
-    .open-item
-        text-align right
-
     .menu-title
         text-align center
         line-height 32px
+        font-size 14px
         background cSelection
+        border-top 4px solid cSeparator
 
     .menu-group
         border-bottom 1px solid cSeparator
 
     .menu-group-title
-        display none
+        padding 4px 0 4px 0
+        text-align center
 
     .menu-items
         padding-bottom 32px
 
     .menu-item
         display block
-        padding 8px 12px
+        padding 8px 4px 8px 16px
         text-decoration none
         font-size 12px
+        border-top 1px solid rgba(cSeparator, .3)
 
         @media all and (max-width: notPCWidth)
             font-size 14px
