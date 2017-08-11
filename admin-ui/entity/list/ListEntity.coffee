@@ -33,6 +33,8 @@ F.toListEntity = (entityName)->
                 F.toastSuccess('删除成功')
                 $refreshPageBtn.click()
 
+        F.enableDatePicker($view.find('.date-picker'), {})
+
 F.enableListEntity = (entityMeta, $view, build$table, build$tbody, pageId, onPageRefresh)->
     $action = $(FT.EntityListPaging({entityName: entityMeta.name, entityMeta})).appendTo($view)
 
