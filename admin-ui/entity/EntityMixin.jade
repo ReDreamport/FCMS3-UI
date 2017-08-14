@@ -10,10 +10,11 @@ mixin listFields(fieldNames, entityValue, entityMeta)
 mixin viewEntityTable(fields, entityValue, systemFields)
     table.view-entity-table.simple(style="display: inline-table;")
         each fieldMeta in fields
-            tr
-                td=fieldMeta.label
-                td
-                    +renderFieldValue(fieldMeta, entityValue, true)
+            if systemFields || !F.isSystemFieldName(fieldMeta.name)
+                tr
+                    td=fieldMeta.label
+                    td
+                        +renderFieldValue(fieldMeta, entityValue, true)
 
 mixin renderFieldValue(fieldMeta, entityValue, renderComponentCompletely)
     -var fn = fieldMeta.name

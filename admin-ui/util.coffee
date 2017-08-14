@@ -126,6 +126,9 @@ F.getListFieldNames = (fields)->
         names.push fieldName
     names
 
+F.isSystemFieldName = (fieldName)->
+    fieldName in ['_id', '_version', '_createdOn', '_createdBy', '_modifiedOn', '_modifiedBy']
+
 F.isSortableField = (fieldMeta)->
     (fieldMeta.name != '_id' and fieldMeta.name != '_version' and not fieldMeta.multiple and
         fieldMeta.type != 'Reference' and fieldMeta.type != 'Image' and fieldMeta.type != 'File' and
