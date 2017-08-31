@@ -11,7 +11,8 @@ F.toUpdateEntity = (entityName, _id)->
     else
         title = "编辑 #{entityMeta.label} #{F.digestId(_id)}"
 
-    F.openOrAddPage pageId, title, 'F.toUpdateEntity', [entityName, _id], ($page)->
+    F.openOrAddPage pageId, title, 'F.toUpdateEntity', [entityName,
+        _id], ($page)->
         $view = $(FT.EditEntity()).appendTo($page.find('.page-content'))
         $saveBtn = $view.find('.save:first')
         $saveBtn.html '加载原数据...'
@@ -61,8 +62,10 @@ F.toUpdateEntity = (entityName, _id)->
             else
                 F.api.post "entity/#{entityName}", entity
             q.then ->
+                $saveBtn.html '保存'
+                saving = false
                 F.toastSuccess('保存成功')
-                F.removePage(pageId)
+                # F.removePage(pageId)
                 $(document.body).find('.refresh-page.refresh-' + entityName).click()
             q.catch (xhr)->
                 saving = false
