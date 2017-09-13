@@ -65,7 +65,7 @@ F.toUpdateEntity = (entityName, _id)->
                 $saveBtn.html '保存'
                 saving = false
                 F.toastSuccess('保存成功')
-                # F.removePage(pageId)
+                F.removePage(pageId) if isCreate
                 $(document.body).find('.refresh-page.refresh-' + entityName).click()
             q.catch (xhr)->
                 saving = false
